@@ -9,6 +9,7 @@ public class AquaZen extends JFrame {
     private JMenu jmPacienteCadastro, jmPacienteDados, jmOpcoes;
     private JMenuItem jmiEmagrecimentoCadastro, jmiEsteticaCadastro, jmiEmagrecimentoDados, jmiEsteticaDados, jmiSair; // Alterar e Remover
 
+
     public AquaZen(String title) throws HeadlessException {
         super(title);
     }
