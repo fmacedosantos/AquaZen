@@ -3,11 +3,18 @@ package classes;
 import interfaces.Atividades;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Estetica extends Paciente implements Atividades {
+    private List<String> servicos = new ArrayList<>();
 
     public Estetica(String nome, String telefone, String sexo, String tipoAtividade) {
         super(nome, telefone, sexo, tipoAtividade);
+    }
+
+    public void adicionarServico(String servico) {
+        servicos.add(servico);
     }
 
     public void servicos(String servico1){
@@ -24,24 +31,28 @@ public class Estetica extends Paciente implements Atividades {
 
     @Override
     public String mostrarDados() {
-        return "Nome: " + this.nome
-                + "\nTelefone: " + this.telefone
-                + "\nSexo: " + this.sexo
-                + "\nTipo de Atividade: " + this.tipoAtividade;
+        String dados = super.mostrarDados();
+
+        dados += "\nServiços:";
+        for (String servico : servicos) {
+            dados += "\n- " + servico;
+        }
+
+        return dados;
     }
 
     @Override
     public String caminharBosque() {
-        return tipoAtividade = "Caminhe no Bosque";
+        return tipoAtividade = "Caminhe um total de 90 minutos semanais";
     }
 
     @Override
     public String nadarPiscina() {
-        return tipoAtividade = "Nade em uma Piscine";
+        return tipoAtividade = "Nade um total de 45 minutos semanais";
     }
 
     @Override
     public String exercitarAcademia() {
-        return tipoAtividade = "Exercite-se na Academia";
+        return tipoAtividade = "Treine um total de 3 horas semanais";
     }
 }

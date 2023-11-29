@@ -27,16 +27,16 @@ public class Emagrecimento extends Paciente implements Atividades {
 
     @Override
     public String caminharBosque() {
-        return null;
+        return tipoAtividade = "Caminhe um total de 130 minutos semanais";
     }
 
     @Override
     public String nadarPiscina() {
-        return null;
+        return tipoAtividade = "Nade um total de 60 minutos semanais";
     }
 
     @Override
     public String exercitarAcademia() {
-        return null;
+        return tipoAtividade = "Treine um total de 5 horas semanais";
     }
 }
