@@ -2,6 +2,7 @@ package testes;
 
 import classes.Emagrecimento;
 import classes.Estetica;
+import classes.Paciente;
 import telas.AquaZen;
 
 import java.util.HashSet;
@@ -10,9 +11,8 @@ import java.util.Set;
 public class Main {
 
     public static void main(String[] args) {
-        Set<Emagrecimento> emagrecimentos = new HashSet<>();
-        Set<Estetica> esteticas = new HashSet<>();
-        AquaZen aquaZen = new AquaZen("AquaZen Spa", emagrecimentos, esteticas);
+        Set<Paciente> pacientes = new HashSet<>();
+        AquaZen aquaZen = new AquaZen("AquaZen Spa", pacientes);
         aquaZen.setVisible(true);
     }
 }

@@ -1,6 +1,7 @@
 package paineis;
 
 import classes.Emagrecimento;
+import classes.Estetica;
 import classes.Paciente;
 
 import javax.swing.*;
@@ -8,17 +9,17 @@ import javax.swing.text.MaskFormatter;
 import java.text.ParseException;
 import java.util.Set;
 
-public class CadastroEmagrecimento extends JPanel {
+public class CadastroEstetica extends JPanel {
 
     private Set<Paciente> pacientes;
-    JLabel nomeLabel, telefoneLabel, sexoLabel, tipoAtividadeLabel, pesoLabel, alturaLabel;
-    private JTextField nomeField, tipoAtividadeField, pesoField, alturaField;
+    JLabel nomeLabel, telefoneLabel, sexoLabel, tipoAtividadeLabel;
+    private JTextField nomeField, tipoAtividadeField;
     private JFormattedTextField telefoneField;
     ButtonGroup sexoGroup;
     private JRadioButton masculinoButton, femininoButton;
     private JButton cadastrarButton;
 
-    public CadastroEmagrecimento(Set<Paciente> pacientes) {
+    public CadastroEstetica(Set<Paciente> pacientes) {
         super();
         this.pacientes = pacientes;
         setSize(400, 450);
@@ -43,10 +44,6 @@ public class CadastroEmagrecimento extends JPanel {
         sexoGroup.add(femininoButton);
         tipoAtividadeLabel = new JLabel("Tipo de Atividade:");
         tipoAtividadeField = new JTextField();
-        pesoLabel = new JLabel("Peso:");
-        pesoField = new JTextField();
-        alturaLabel = new JLabel("Altura:");
-        alturaField = new JTextField();
 
         // Cria o botão
         cadastrarButton = new JButton("Cadastrar");
@@ -74,12 +71,6 @@ public class CadastroEmagrecimento extends JPanel {
         tipoAtividadeLabel.setBounds(50, y, 100, 20);
         tipoAtividadeField.setBounds(150, y, 100, 20);
         y += 30;
-        pesoLabel.setBounds(50, y, 100, 20);
-        pesoField.setBounds(150, y, 100, 20);
-        y += 30;
-        alturaLabel.setBounds(50, y, 100, 20);
-        alturaField.setBounds(150, y, 100, 20);
-        y += 30;
         cadastrarButton.setBounds(50, y, 100, 20);
 
         // Adiciona os rótulos e campos de entrada ao painel
@@ -92,10 +83,6 @@ public class CadastroEmagrecimento extends JPanel {
         add(femininoButton);
         add(tipoAtividadeLabel);
         add(tipoAtividadeField);
-        add(pesoLabel);
-        add(pesoField);
-        add(alturaLabel);
-        add(alturaField);
 
         // Adiciona o botão ao painel
         add(cadastrarButton);
@@ -106,5 +93,4 @@ public class CadastroEmagrecimento extends JPanel {
         // Aqui você pode adicionar os listeners para os eventos
     }
 }
-
 

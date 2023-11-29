@@ -2,7 +2,9 @@ package telas;
 
 import classes.Emagrecimento;
 import classes.Estetica;
+import classes.Paciente;
 import paineis.CadastroEmagrecimento;
+import paineis.CadastroEstetica;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,11 +18,11 @@ public class AquaZen extends JFrame {
     private JMenuBar jMenuBar;
     private JMenu jmPacienteCadastro, jmPacienteDados, jmOpcoes;
     private JMenuItem jmiEmagrecimentoCadastro, jmiEsteticaCadastro, jmiEmagrecimentoDados, jmiEsteticaDados, jmiSair; // Alterar e Remover
-    private Set<Emagrecimento> emagrecimentos;
-    public AquaZen(String title, Set<Emagrecimento> emagrecimentos, Set<Estetica> esteticas) throws HeadlessException {
+    private Set<Paciente> pacientes;
+    public AquaZen(String title, Set<Paciente> pacientes) throws HeadlessException {
         super(title);
-        this.emagrecimentos = emagrecimentos;
-        setSize(600, 600);
+        this.pacientes = pacientes;
+        setSize(400, 450);
         setResizable(false);
         setLayout(null);
         setLocationRelativeTo(getContentPane());
@@ -71,7 +73,7 @@ public class AquaZen extends JFrame {
         jmiEmagrecimentoCadastro.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CadastroEmagrecimento painelCadastroEmagrecimentos = new CadastroEmagrecimento(emagrecimentos);
+                CadastroEmagrecimento painelCadastroEmagrecimentos = new CadastroEmagrecimento(pacientes);
                 getContentPane().removeAll(); // remove todos os componentes da tela
                 getContentPane().add(painelCadastroEmagrecimentos); // adiciona o novo painel
                 getContentPane().validate(); // valida os componentes
@@ -79,6 +81,16 @@ public class AquaZen extends JFrame {
             }
         });
 
+        jmiEsteticaCadastro.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CadastroEstetica painelCadastroEsteticas = new CadastroEstetica(pacientes);
+                getContentPane().removeAll(); // remove todos os componentes da tela
+                getContentPane().add(painelCadastroEsteticas); // adiciona o novo painel
+                getContentPane().validate(); // valida os componentes
+                repaint(); // atualiza a tela
+            }
+        });
 
     }
 }
