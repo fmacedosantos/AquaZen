@@ -29,6 +29,7 @@ public class CadastroEmagrecimento extends JPanel {
 
     private void inicarComponentes() {
 
+
         // Cria os rótulos e campos de entrada
         nomeLabel = new JLabel("Nome:");
         nomeField = new JTextField();
