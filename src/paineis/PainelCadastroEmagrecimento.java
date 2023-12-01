@@ -10,8 +10,10 @@ import java.util.Set;
 public class PainelCadastroEmagrecimento extends JPanel {
 
     private Set<Paciente> pacientes;
+    String[] opcoesAtividades = {"Caminhada", "Natação", "Treino"};
     private JLabel jlNome, jlTelefone, jlSexo, jlTipoAtividade, jlPeso, jlAltura;
-    private JTextField jtfNome, jtfTipoAtividade, jtfPeso, jtfAltura;
+    private JTextField jtfNome, jtfPeso, jtfAltura;
+    private JComboBox<String> jcbAtividades;
     private JFormattedTextField jftfTelefone;
     private ButtonGroup bgSexo;
     private JRadioButton jrbMasculino, jrbFeminino;
@@ -41,7 +43,7 @@ public class PainelCadastroEmagrecimento extends JPanel {
         bgSexo.add(jrbMasculino);
         bgSexo.add(jrbFeminino);
         jlTipoAtividade = new JLabel("Tipo de Atividade:");
-        jtfTipoAtividade = new JTextField();
+        jcbAtividades = new JComboBox<>(opcoesAtividades);
         jlPeso = new JLabel("Peso:");
         jtfPeso = new JTextField();
         jlAltura = new JLabel("Altura:");
@@ -72,7 +74,7 @@ public class PainelCadastroEmagrecimento extends JPanel {
         jrbFeminino.setBounds(230, y, 100, 20);
         y += 30;
         jlTipoAtividade.setBounds(50, y, 100, 20);
-        jtfTipoAtividade.setBounds(xJtf, y, 100, 20);
+        jcbAtividades.setBounds(xJtf, y, 100, 20);
         y += 30;
         jlPeso.setBounds(50, y, 100, 20);
         jtfPeso.setBounds(xJtf, y, 100, 20);
@@ -91,7 +93,7 @@ public class PainelCadastroEmagrecimento extends JPanel {
         add(jrbMasculino);
         add(jrbFeminino);
         add(jlTipoAtividade);
-        add(jtfTipoAtividade);
+        add(jcbAtividades);
         add(jlPeso);
         add(jtfPeso);
         add(jlAltura);

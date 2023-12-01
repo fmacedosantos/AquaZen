@@ -10,7 +10,7 @@ public class TestaAquaZen {
 
     public static void main(String[] args) {
         Set<Paciente> pacientes = new HashSet<>();
-        TelaAquaZen aquaZen = new TelaAquaZen("AquaZen Spa", pacientes);
+        TelaAquaZen aquaZen = new TelaAquaZen("AquaZen", pacientes);
         aquaZen.setVisible(true);
     }
 }

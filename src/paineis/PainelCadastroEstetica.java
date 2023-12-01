@@ -10,11 +10,16 @@ import java.util.Set;
 public class PainelCadastroEstetica extends JPanel {
 
     private Set<Paciente> pacientes;
-    private JLabel jlNome, telefoneLabel, sexoLabel, tipoAtividadeLabel;
-    private JTextField nomeField, tipoAtividadeField; // Combo box para tipo de serviço
+    String[] opcoesAtividades = {"Caminhada", "Natação", "Treino"},
+    tiposServicos  = {""};
+    private JLabel jlNome, telefoneLabel, sexoLabel, tipoAtividadeLabel, jlTipoServico;
+    private JTextField nomeField; // Combo box para tipo de serviço
     private JFormattedTextField telefoneField;
     private ButtonGroup sexoGroup;
     private JRadioButton masculinoButton, femininoButton;
+    private JComboBox<String> jcbAtividades;
+    private JCheckBox jcbxDrenagemLinfatica, jcbxHidratacaoPesMaos, jcbxLimpezaPele,
+            jcbxBanhoLua, jcbxPeeling, jcbxCuidadosCabelo, jcbxMassagemEsfolianteFacialCorporal;
     private JButton cadastrarButton;
 
     public PainelCadastroEstetica(Set<Paciente> pacientes) {
@@ -41,7 +46,15 @@ public class PainelCadastroEstetica extends JPanel {
         sexoGroup.add(masculinoButton);
         sexoGroup.add(femininoButton);
         tipoAtividadeLabel = new JLabel("Tipo de Atividade:");
-        tipoAtividadeField = new JTextField();
+        jcbAtividades = new JComboBox<>(opcoesAtividades);
+        jlTipoServico = new JLabel("Serviços a Contratar:");
+        jcbxDrenagemLinfatica = new JCheckBox("Drenagem Linfática");
+        jcbxHidratacaoPesMaos = new JCheckBox("Hidratação (Pés / Mãos)");
+        jcbxLimpezaPele = new JCheckBox("Limpeza (Pele)");
+        jcbxBanhoLua = new JCheckBox("Banho de Lua");
+        jcbxPeeling = new JCheckBox("Peeling");
+        jcbxCuidadosCabelo = new JCheckBox("Cabelo");
+        jcbxMassagemEsfolianteFacialCorporal = new JCheckBox("Massagem Esfoliante (Facial / Corporal)");
 
         // Cria o botão
         cadastrarButton = new JButton("Cadastrar");
@@ -55,22 +68,37 @@ public class PainelCadastroEstetica extends JPanel {
         }
 
         // Define a posição e o tamanho dos componentes
-        int y = 50;
+        int xJl = 50;
         int xJtf = 170;
-        jlNome.setBounds(50, y, 100, 20);
-        nomeField.setBounds(xJtf, y, 100, 20);
+        int y = 50;
+        int wid = 100;
+        int hei = 20;
+        jlNome.setBounds(xJl, y, wid, hei);
+        nomeField.setBounds(xJtf, y, wid, hei);
         y += 30;
-        telefoneLabel.setBounds(50, y, 100, 20);
-        telefoneField.setBounds(xJtf, y, 100, 20);
+        telefoneLabel.setBounds(xJl, y, wid, hei);
+        telefoneField.setBounds(xJtf, y, wid, hei);
         y += 30;
-        sexoLabel.setBounds(50, y, 100, 20);
-        masculinoButton.setBounds(130, y, 100, 20);
-        femininoButton.setBounds(230, y, 100, 20);
+        sexoLabel.setBounds(xJl, y, wid, hei);
+        masculinoButton.setBounds(130, y, wid, hei);
+        femininoButton.setBounds(230, y, wid, hei);
         y += 30;
-        tipoAtividadeLabel.setBounds(50, y, 100, 20);
-        tipoAtividadeField.setBounds(xJtf, y, 100, 20);
+        tipoAtividadeLabel.setBounds(xJl, y, wid, hei);
+        jcbAtividades.setBounds(xJtf, y, wid, hei);
+        y += 30;
+        jlTipoServico.setBounds(xJl, y, 130, hei);
+        jcbxDrenagemLinfatica.setBounds(190, y, 140, hei);
+        y += 30;
+        jcbxHidratacaoPesMaos.setBounds(xJl, y, 170, hei); // 70 de distancia
+        jcbxLimpezaPele.setBounds(230, y, 160, hei);
+        y += 30;
+        jcbxBanhoLua.setBounds(xJl, y, 120, hei);
+        jcbxPeeling.setBounds(170, y, 80, hei);
+        jcbxCuidadosCabelo.setBounds(260, y, 160, hei);
+        y += 30;
+        jcbxMassagemEsfolianteFacialCorporal.setBounds(xJl, y, 350, hei);
         y += 50;
-        cadastrarButton.setBounds(140, y, 100, 20);
+        cadastrarButton.setBounds(140, y, wid, hei);
 
         // Adiciona os rótulos e campos de entrada ao painel
         add(jlNome);
@@ -81,7 +109,15 @@ public class PainelCadastroEstetica extends JPanel {
         add(masculinoButton);
         add(femininoButton);
         add(tipoAtividadeLabel);
-        add(tipoAtividadeField);
+        add(jcbAtividades);
+        add(jlTipoServico);
+        add(jcbxHidratacaoPesMaos);
+        add(jcbxDrenagemLinfatica);
+        add(jcbxLimpezaPele);
+        add(jcbxBanhoLua);
+        add(jcbxPeeling);
+        add(jcbxCuidadosCabelo);
+        add(jcbxMassagemEsfolianteFacialCorporal);
 
         // Adiciona o botão ao painel
         add(cadastrarButton);
