@@ -81,22 +81,22 @@ public class PainelCadastroEstetica extends JPanel {
         // Define a posição e o tamanho dos componentes
         int xJl = 50;
         int xJtf = 170;
-        int y = 50;
+        int y = 20;
         int wid = 100;
         int hei = 20;
         jlNome.setBounds(xJl, y, wid, hei);
         nomeField.setBounds(xJtf, y, wid, hei);
-        y += 30;
+        y += 40;
         telefoneLabel.setBounds(xJl, y, wid, hei);
         telefoneField.setBounds(xJtf, y, wid, hei);
-        y += 30;
+        y += 40;
         sexoLabel.setBounds(xJl, y, wid, hei);
         masculinoButton.setBounds(130, y, wid, hei);
         femininoButton.setBounds(230, y, wid, hei);
-        y += 30;
+        y += 40;
         tipoAtividadeLabel.setBounds(xJl, y, wid, hei);
         jcbAtividades.setBounds(xJtf, y, wid, hei);
-        y += 30;
+        y += 40;
         jlTipoServico.setBounds(xJl, y, 130, hei);
         jcbxDrenagemLinfatica.setBounds(190, y, 140, hei);
         y += 30;
@@ -108,7 +108,7 @@ public class PainelCadastroEstetica extends JPanel {
         jcbxCuidadosCabelo.setBounds(260, y, 160, hei);
         y += 30;
         jcbxMassagemEsfolianteFacialCorporal.setBounds(xJl, y, 350, hei);
-        y += 50;
+        y += 40;
         cadastrarButton.setBounds(140, y, wid, hei);
 
         // Adiciona os rótulos e campos de entrada ao painel

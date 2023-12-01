@@ -61,27 +61,27 @@ public class PainelCadastroEmagrecimento extends JPanel {
         }
 
         // Define a posição e o tamanho dos componentes
-        int y = 50;
+        int y = 20;
         int xJtf = 170;
         jlNome.setBounds(50, y, 100, 20);
         jtfNome.setBounds(xJtf, y, 100, 20);
-        y += 30;
+        y += 40;
         jlTelefone.setBounds(50, y, 100, 20);
         jftfTelefone.setBounds(xJtf, y, 100, 20);
-        y += 30;
+        y += 40;
         jlSexo.setBounds(50, y, 100, 20);
         jrbMasculino.setBounds(130, y, 100, 20);
         jrbFeminino.setBounds(230, y, 100, 20);
-        y += 30;
+        y += 40;
         jlTipoAtividade.setBounds(50, y, 100, 20);
         jcbAtividades.setBounds(xJtf, y, 100, 20);
-        y += 30;
+        y += 40;
         jlPeso.setBounds(50, y, 100, 20);
         jtfPeso.setBounds(xJtf, y, 100, 20);
-        y += 30;
+        y += 40;
         jlAltura.setBounds(50, y, 100, 20);
         jtfAltura.setBounds(xJtf, y, 100, 20);
-        y += 50;
+        y += 40;
         jbCadastrar.setBounds(140, y, 100, 20);
 
         // Adiciona os rótulos e campos de entrada ao painel

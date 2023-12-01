@@ -6,36 +6,70 @@ import paineis.PainelCadastroEstetica;
 import paineis.PainelExibirDados;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicMenuItemUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 import java.util.Set;
 
 public class TelaAquaZen extends JFrame {
 
+    // instanciação dos componentes
     private JMenuBar jMenuBar;
     private JMenu jmPacienteCadastro;
     private JMenuItem jmiEmagrecimentoCadastro, jmiEsteticaCadastro, jmiDados, jmiPesquisar, jmiSair;
+    private JLabel jlTelaFundo;
+    private ImageIcon iiTelaFundo, logo;
+    private String iconeUrl;
     private Set<Paciente> pacientes;
+
     public TelaAquaZen(String title, Set<Paciente> pacientes) throws HeadlessException {
         super(title);
         this.pacientes = pacientes;
         setSize(400, 450);
         setResizable(false);
         setLayout(null);
+        this.getContentPane().setBackground(Color.DARK_GRAY); // Define a cor de fundo
         setLocationRelativeTo(getContentPane());
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        iconeUrl = "src/imagens/logoSpaAquaZen.png";
+        logo = new ImageIcon(iconeUrl);
+        setIconImage(logo.getImage());
         iniciarComponentes();
         criarEventos();
     }
 
     private void iniciarComponentes() {
-        // obj
+
+        // OBJETOS
+        iiTelaFundo = new ImageIcon("src/imagens/telaFundoSpa.png");
+        jlTelaFundo = new JLabel(iiTelaFundo);
+
+        // Personalização
+        Color textoCabecalho = Color.BLACK;
         jMenuBar = new JMenuBar();
+
+        // jmPaciente + Personalização
         jmPacienteCadastro = new JMenu("Paciente");
+        jmPacienteCadastro.setForeground(textoCabecalho); // Define a cor do texto
+
+        // jmiDados + Peronalização
         jmiDados = new JMenuItem("Exibir Dados");
+        jmiDados.setForeground(textoCabecalho);
+        jmiDados.setOpaque(false); // Define a opacidade para false
+
+        // jmiPesquisar + Personalização
         jmiPesquisar = new JMenuItem("Pesquisar");
+        jmiPesquisar.setForeground(textoCabecalho);
+        jmiPesquisar.setOpaque(false);
+
+        // jmiSair + Personalização
         jmiSair = new JMenuItem("Sair");
+        jmiSair.setForeground(Color.WHITE);
+        jmiSair.setBackground(Color.RED);
+        jmiSair.setOpaque(true);
+
         jmiEmagrecimentoCadastro = new JMenuItem("Emagrecimento");
         jmiEsteticaCadastro = new JMenuItem("Estética");
 
@@ -52,8 +86,13 @@ public class TelaAquaZen extends JFrame {
         jmPacienteCadastro.add(jmiEmagrecimentoCadastro);
         jmPacienteCadastro.add(jmiEsteticaCadastro);
 
+        add(jlTelaFundo);
+
+        jlTelaFundo.setBounds(0, 0, getWidth(), getHeight());
 
     }
+
+
 
     private void criarEventos() {
 
