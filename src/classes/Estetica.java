@@ -7,39 +7,47 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Estetica extends Paciente implements Atividades {
-    private List<String> servicos = new ArrayList<>();
 
-    public Estetica(String nome, String telefone, String sexo, String tipoAtividade) {
+    String servico1;
+    String servico2;
+    String servico3;
+
+    public Estetica(String nome, String telefone, String sexo, String tipoAtividade, String servico1) {
         super(nome, telefone, sexo, tipoAtividade);
+        this.servico1 = servico1;
     }
 
-    public void adicionarServico(String servico) {
-        servicos.add(servico);
+    public Estetica(String nome, String telefone, String sexo, String tipoAtividade, String servico1,
+                    String servico2) {
+        super(nome, telefone, sexo, tipoAtividade);
+        this.servico1 = servico1;
+        this.servico2 = servico2;
     }
 
-    public void servicos(String servico1){
-
+    public Estetica(String nome, String telefone, String sexo, String tipoAtividade, String servico1,
+                    String servico2, String servico3) {
+        super(nome, telefone, sexo, tipoAtividade);
+        this.servico1 = servico1;
+        this.servico2 = servico2;
+        this.servico3 = servico3;
     }
 
-    public void servicos(String servico1, String servico2){
-
-    }
-
-    public void servicos(String servico1, String servico2, String servico3){
-
-    }
-
-    @Override
     public String mostrarDados() {
         String dados = super.mostrarDados();
-
-        dados += "\nServiços:";
-        for (String servico : servicos) {
-            dados += "\n- " + servico;
+        dados += "\nServiços: ";
+        if (this.servico1 != null) {
+            dados += this.servico1;
         }
-
+        if (this.servico2 != null) {
+            dados += ", " + this.servico2;
+        }
+        if (this.servico3 != null) {
+            dados += ", " + this.servico3;
+        }
         return dados;
     }
+
+
 
     @Override
     public String caminharBosque() {

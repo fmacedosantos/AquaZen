@@ -1,17 +1,19 @@
 package paineis;
 
+import classes.Estetica;
 import classes.Paciente;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.Set;
 
 public class PainelCadastroEstetica extends JPanel {
 
     private Set<Paciente> pacientes;
-    String[] opcoesAtividades = {"Caminhada", "Natação", "Treino"},
-    tiposServicos  = {""};
+    String[] opcoesAtividades = {"Caminhada", "Natação", "Treino"};
     private JLabel jlNome, telefoneLabel, sexoLabel, tipoAtividadeLabel, jlTipoServico;
     private JTextField nomeField; // Combo box para tipo de serviço
     private JFormattedTextField telefoneField;
@@ -20,6 +22,15 @@ public class PainelCadastroEstetica extends JPanel {
     private JComboBox<String> jcbAtividades;
     private JCheckBox jcbxDrenagemLinfatica, jcbxHidratacaoPesMaos, jcbxLimpezaPele,
             jcbxBanhoLua, jcbxPeeling, jcbxCuidadosCabelo, jcbxMassagemEsfolianteFacialCorporal;
+    JCheckBox[] checkBoxes = {
+            jcbxDrenagemLinfatica,
+            jcbxHidratacaoPesMaos,
+            jcbxLimpezaPele,
+            jcbxBanhoLua,
+            jcbxPeeling,
+            jcbxCuidadosCabelo,
+            jcbxMassagemEsfolianteFacialCorporal
+    };
     private JButton cadastrarButton;
 
     public PainelCadastroEstetica(Set<Paciente> pacientes) {
@@ -125,7 +136,29 @@ public class PainelCadastroEstetica extends JPanel {
 
 
     private void criarEventos() {
-        // Aqui você pode adicionar os listeners para os eventos
+        cadastrarButton.addActionListener(new ActionListener() {
+            // conta quantas check boxes estão selecionadas
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedCount = 0;
+                for (JCheckBox checkBox : checkBoxes) {
+                    if (checkBox.isSelected()) {
+                        selectedCount++;
+                    }
+                }
+
+                // faz o processo correpondente à quantidade de check boxes
+                if (selectedCount == 1) {
+                    // construtor 1
+                } else if (selectedCount == 2) {
+                    // construtor 2
+                } else if (selectedCount == 3) {
+                    // construtor 3
+                } else {
+                    // exibir mensagem
+                }
+            }
+        });
     }
 }
 
