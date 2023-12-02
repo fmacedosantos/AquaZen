@@ -1,16 +1,20 @@
 package paineis;
 
+import classes.Emagrecimento;
 import classes.Paciente;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.Set;
 
 public class PainelCadastroEmagrecimento extends JPanel {
 
     private Set<Paciente> pacientes;
+    private Emagrecimento emagrecimentos;
     String[] opcoesAtividades = {"Caminhada", "Natação", "Treino"};
     private JLabel jlNome, jlTelefone, jlSexo, jlTipoAtividade, jlPeso, jlAltura;
     private JTextField jtfNome, jtfPeso, jtfAltura;
@@ -113,7 +117,54 @@ public class PainelCadastroEmagrecimento extends JPanel {
 
 
     private void criarEventos() {
-        // Aqui você pode adicionar os listeners para os eventos
+        jbCadastrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nome, telefone, sexo, tipoAtividade;
+                Double peso, altura;
+
+                nome = jtfNome.getText();
+                telefone = jftfTelefone.getText();
+                if (jrbMasculino.isSelected()){
+                    sexo = "Masculino";
+                } else {
+                    sexo = "Feminino";
+                }
+                if (jcbAtividades.getSelectedIndex() == 0){
+                    tipoAtividade = "Caminhada";
+                    System.out.println(tipoAtividade);
+                } else if (jcbAtividades.getSelectedIndex() == 1) {
+                    tipoAtividade = "Natação";
+                } else {
+                    tipoAtividade = "Treino";
+                }
+                peso = Double.valueOf(jtfPeso.getText());
+                altura = Double.valueOf(jtfAltura.getText());
+                emagrecimentos = new Emagrecimento(nome, telefone, sexo, tipoAtividade,
+                        peso, altura);
+                pacientes.add(emagrecimentos);
+
+                // formatando o peso ideal
+                double porcentagemPesoIdeal = emagrecimentos.getPesoIdeal();
+                String mensagemConclusao = String.format("A porcentagem do seu peso atual\n em relação ao seu peso ideal é: \n%.2f%%", porcentagemPesoIdeal);
+                JOptionPane.showMessageDialog(null, mensagemConclusao, "Diagnóstico", JOptionPane.INFORMATION_MESSAGE);
+                String mensagemRecomendacao = "";
+                if (emagrecimentos.getPesoIdeal() <= 100) {
+                    mensagemRecomendacao = "Você está em seu peso ideal,\n" +
+                            "não há a necessidade de emagrecimento.";
+                } else if (tipoAtividade.equals("Caminhada")){
+                    mensagemRecomendacao = emagrecimentos.caminharBosque();
+                } else if (tipoAtividade.equals("Natação")) {
+                    mensagemRecomendacao = emagrecimentos.nadarPiscina();
+                } else {
+                    mensagemRecomendacao = emagrecimentos.exercitarAcademia();
+                }
+
+
+                JOptionPane.showMessageDialog(null, mensagemRecomendacao, "Recomendações", JOptionPane.WARNING_MESSAGE);
+                // fazer uma recomendação
+            }
+        });
     }
 }
 
