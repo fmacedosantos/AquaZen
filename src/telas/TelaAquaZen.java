@@ -3,22 +3,21 @@ package telas;
 import classes.Paciente;
 import paineis.PainelCadastroEmagrecimento;
 import paineis.PainelCadastroEstetica;
-import paineis.PainelExibirDados;
+import paineis.PainelExibirDadosSalvos;
+import paineis.PainelPesquisarPacientes;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicMenuItemUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
 import java.util.Set;
 
 public class TelaAquaZen extends JFrame {
 
     // instanciação dos componentes
     private JMenuBar jMenuBar;
-    private JMenu jmPacienteCadastro;
-    private JMenuItem jmiEmagrecimentoCadastro, jmiEsteticaCadastro, jmiDados, jmiPesquisar, jmiSair;
+    private JMenu jmPacienteCadastro, jmOpcoes;
+    private JMenuItem jmiEmagrecimentoCadastro, jmiEsteticaCadastro, jmiDados, jmiPesquisar, jmiInicio, jmiSair;
     private JLabel jlTelaFundo;
     private ImageIcon iiTelaFundo, logo;
     private String iconeUrl;
@@ -42,33 +41,39 @@ public class TelaAquaZen extends JFrame {
 
     private void iniciarComponentes() {
 
+        // Personalização
+        Color textoCabecalho = Color.black;
+
         // OBJETOS
         iiTelaFundo = new ImageIcon("src/imagens/telaFundoSpa.png");
         jlTelaFundo = new JLabel(iiTelaFundo);
 
-        // Personalização
-        Color textoCabecalho = Color.BLACK;
         jMenuBar = new JMenuBar();
+
+        // jmOpcoes + Personalização
+        jmOpcoes = new JMenu("Opções");
+        jmOpcoes.setForeground(textoCabecalho);
+        jmOpcoes.setOpaque(false);
 
         // jmPaciente + Personalização
         jmPacienteCadastro = new JMenu("Paciente");
-        jmPacienteCadastro.setForeground(textoCabecalho); // Define a cor do texto
+        jmPacienteCadastro.setForeground(textoCabecalho);
+        jmPacienteCadastro.setOpaque(false);
 
         // jmiDados + Peronalização
-        jmiDados = new JMenuItem("Exibir Dados");
+        jmiDados = new JMenuItem("Exibir Dados Salvos");
         jmiDados.setForeground(textoCabecalho);
-        jmiDados.setOpaque(false); // Define a opacidade para false
+        jmiDados.setOpaque(false);
 
         // jmiPesquisar + Personalização
-        jmiPesquisar = new JMenuItem("Pesquisar");
+        jmiPesquisar = new JMenuItem("Pesquisar Pacientes");
         jmiPesquisar.setForeground(textoCabecalho);
         jmiPesquisar.setOpaque(false);
 
+        jmiInicio = new JMenuItem("Início");
+
         // jmiSair + Personalização
         jmiSair = new JMenuItem("Sair");
-        jmiSair.setForeground(Color.WHITE);
-        jmiSair.setBackground(Color.RED);
-        jmiSair.setOpaque(true);
 
         jmiEmagrecimentoCadastro = new JMenuItem("Emagrecimento");
         jmiEsteticaCadastro = new JMenuItem("Estética");
@@ -77,14 +82,16 @@ public class TelaAquaZen extends JFrame {
         setJMenuBar(jMenuBar);
 
         // Adiciona os menus à barra de menus
+        jMenuBar.add(jmOpcoes);
         jMenuBar.add(jmPacienteCadastro);
         jMenuBar.add(jmiDados);
         jMenuBar.add(jmiPesquisar);
-        jMenuBar.add(jmiSair);
 
         // Adiciona os itens de menu aos menus
         jmPacienteCadastro.add(jmiEmagrecimentoCadastro);
         jmPacienteCadastro.add(jmiEsteticaCadastro);
+        jmOpcoes.add(jmiInicio);
+        jmOpcoes.add(jmiSair);
 
         add(jlTelaFundo);
 
@@ -95,6 +102,16 @@ public class TelaAquaZen extends JFrame {
 
 
     private void criarEventos() {
+
+        jmiInicio.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getContentPane().removeAll(); // remove todos os componentes da tela
+                getContentPane().add(jlTelaFundo); // adiciona o novo painel
+                getContentPane().validate(); // valida os componentes
+                repaint(); // atualiza a tela
+            }
+        });
 
         jmiSair.addActionListener(new ActionListener() {
             @Override
@@ -118,21 +135,32 @@ public class TelaAquaZen extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PainelCadastroEstetica painelCadastroEsteticas = new PainelCadastroEstetica(pacientes);
-                getContentPane().removeAll(); // remove todos os componentes da tela
-                getContentPane().add(painelCadastroEsteticas); // adiciona o novo painel
-                getContentPane().validate(); // valida os componentes
-                repaint(); // atualiza a tela
+                getContentPane().removeAll();
+                getContentPane().add(painelCadastroEsteticas);
+                getContentPane().validate();
+                repaint();
             }
         });
 
         jmiDados.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                PainelExibirDados dados = new PainelExibirDados(pacientes);
-                getContentPane().removeAll(); // remove todos os componentes da tela
-                getContentPane().add(dados); // adiciona o novo painel
-                getContentPane().validate(); // valida os componentes
-                repaint(); // atualiza a tela
+                PainelExibirDadosSalvos dados = new PainelExibirDadosSalvos(pacientes);
+                getContentPane().removeAll();
+                getContentPane().add(dados);
+                getContentPane().validate();
+                repaint();
+            }
+        });
+
+        jmiPesquisar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PainelPesquisarPacientes pesquisa = new PainelPesquisarPacientes(pacientes);
+                getContentPane().removeAll();
+                getContentPane().add(pesquisa);
+                getContentPane().validate();
+                repaint();
             }
         });
 

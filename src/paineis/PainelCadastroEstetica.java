@@ -1,10 +1,10 @@
 package paineis;
 
-import classes.Estetica;
 import classes.Paciente;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -14,11 +14,11 @@ public class PainelCadastroEstetica extends JPanel {
 
     private Set<Paciente> pacientes;
     String[] opcoesAtividades = {"Caminhada", "Natação", "Treino"};
-    private JLabel jlNome, telefoneLabel, sexoLabel, tipoAtividadeLabel, jlTipoServico;
-    private JTextField nomeField; // Combo box para tipo de serviço
-    private JFormattedTextField telefoneField;
+    private JLabel jlNome, jlTelefone, jlSexo, jlTipoAtividade, jlTipoServico;
+    private JTextField jtfNome;
+    private JFormattedTextField jftTelefone;
     private ButtonGroup sexoGroup;
-    private JRadioButton masculinoButton, femininoButton;
+    private JRadioButton jrbMasculino, jrbFeminino;
     private JComboBox<String> jcbAtividades;
     private JCheckBox jcbxDrenagemLinfatica, jcbxHidratacaoPesMaos, jcbxLimpezaPele,
             jcbxBanhoLua, jcbxPeeling, jcbxCuidadosCabelo, jcbxMassagemEsfolianteFacialCorporal;
@@ -31,7 +31,7 @@ public class PainelCadastroEstetica extends JPanel {
             jcbxCuidadosCabelo,
             jcbxMassagemEsfolianteFacialCorporal
     };
-    private JButton cadastrarButton;
+    private JButton jbCadastrar;
 
     public PainelCadastroEstetica(Set<Paciente> pacientes) {
         super();
@@ -39,6 +39,9 @@ public class PainelCadastroEstetica extends JPanel {
         setSize(400, 450);
         // Configura o layout do painel para null
         setLayout(null);
+        // definindo a cor de fundo do painel
+        Color fundo = new Color(159, 198, 255);
+        this.setBackground(fundo);
         inicarComponentes();
         criarEventos();
     }
@@ -47,33 +50,46 @@ public class PainelCadastroEstetica extends JPanel {
 
         // Cria os rótulos e campos de entrada
         jlNome = new JLabel("Nome:");
-        nomeField = new JTextField();
-        telefoneLabel = new JLabel("Telefone:");
-        telefoneField = new JFormattedTextField();
-        sexoLabel = new JLabel("Sexo:");
+        jtfNome = new JTextField();
+        jlTelefone = new JLabel("Telefone:");
+        jftTelefone = new JFormattedTextField();
+        jlSexo = new JLabel("Sexo:");
         sexoGroup = new ButtonGroup();
-        masculinoButton = new JRadioButton("Masculino");
-        femininoButton = new JRadioButton("Feminino");
-        sexoGroup.add(masculinoButton);
-        sexoGroup.add(femininoButton);
-        tipoAtividadeLabel = new JLabel("Tipo de Atividade:");
+        jrbMasculino = new JRadioButton("Masculino");
+        jrbMasculino.setOpaque(false);
+        jrbFeminino = new JRadioButton("Feminino");
+        jrbFeminino.setOpaque(false);
+        sexoGroup.add(jrbMasculino);
+        sexoGroup.add(jrbFeminino);
+        jlTipoAtividade = new JLabel("Tipo de Atividade:");
         jcbAtividades = new JComboBox<>(opcoesAtividades);
+
+        // Serviços + Personalização
         jlTipoServico = new JLabel("Serviços a Contratar:");
         jcbxDrenagemLinfatica = new JCheckBox("Drenagem Linfática");
+        jcbxDrenagemLinfatica.setOpaque(false);
         jcbxHidratacaoPesMaos = new JCheckBox("Hidratação (Pés / Mãos)");
+        jcbxHidratacaoPesMaos.setOpaque(false);
         jcbxLimpezaPele = new JCheckBox("Limpeza (Pele)");
+        jcbxLimpezaPele.setOpaque(false);
         jcbxBanhoLua = new JCheckBox("Banho de Lua");
+        jcbxBanhoLua.setOpaque(false);
         jcbxPeeling = new JCheckBox("Peeling");
+        jcbxPeeling.setOpaque(false);
         jcbxCuidadosCabelo = new JCheckBox("Cabelo");
+        jcbxCuidadosCabelo.setOpaque(false);
         jcbxMassagemEsfolianteFacialCorporal = new JCheckBox("Massagem Esfoliante (Facial / Corporal)");
+        jcbxMassagemEsfolianteFacialCorporal.setOpaque(false);
 
-        // Cria o botão
-        cadastrarButton = new JButton("Cadastrar");
+        // jbCadastrar + Personalização
+        jbCadastrar = new JButton("Cadastrar");
+        jbCadastrar.setForeground(Color.WHITE);
+        jbCadastrar.setBackground(new Color(105, 168, 204));
 
         // Adiciona uma máscara de telefone ao campo de telefone
         try {
             MaskFormatter formatter = new MaskFormatter("(##) #####-####");
-            formatter.install(telefoneField);
+            formatter.install(jftTelefone);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -85,16 +101,16 @@ public class PainelCadastroEstetica extends JPanel {
         int wid = 100;
         int hei = 20;
         jlNome.setBounds(xJl, y, wid, hei);
-        nomeField.setBounds(xJtf, y, wid, hei);
+        jtfNome.setBounds(xJtf, y, wid, hei);
         y += 40;
-        telefoneLabel.setBounds(xJl, y, wid, hei);
-        telefoneField.setBounds(xJtf, y, wid, hei);
+        jlTelefone.setBounds(xJl, y, wid, hei);
+        jftTelefone.setBounds(xJtf, y, wid, hei);
         y += 40;
-        sexoLabel.setBounds(xJl, y, wid, hei);
-        masculinoButton.setBounds(130, y, wid, hei);
-        femininoButton.setBounds(230, y, wid, hei);
+        jlSexo.setBounds(xJl, y, wid, hei);
+        jrbMasculino.setBounds(130, y, wid, hei);
+        jrbFeminino.setBounds(230, y, wid, hei);
         y += 40;
-        tipoAtividadeLabel.setBounds(xJl, y, wid, hei);
+        jlTipoAtividade.setBounds(xJl, y, wid, hei);
         jcbAtividades.setBounds(xJtf, y, wid, hei);
         y += 40;
         jlTipoServico.setBounds(xJl, y, 130, hei);
@@ -109,17 +125,18 @@ public class PainelCadastroEstetica extends JPanel {
         y += 30;
         jcbxMassagemEsfolianteFacialCorporal.setBounds(xJl, y, 350, hei);
         y += 40;
-        cadastrarButton.setBounds(140, y, wid, hei);
+
+        jbCadastrar.setBounds(140, y, wid, hei);
 
         // Adiciona os rótulos e campos de entrada ao painel
         add(jlNome);
-        add(nomeField);
-        add(telefoneLabel);
-        add(telefoneField);
-        add(sexoLabel);
-        add(masculinoButton);
-        add(femininoButton);
-        add(tipoAtividadeLabel);
+        add(jtfNome);
+        add(jlTelefone);
+        add(jftTelefone);
+        add(jlSexo);
+        add(jrbMasculino);
+        add(jrbFeminino);
+        add(jlTipoAtividade);
         add(jcbAtividades);
         add(jlTipoServico);
         add(jcbxHidratacaoPesMaos);
@@ -131,12 +148,12 @@ public class PainelCadastroEstetica extends JPanel {
         add(jcbxMassagemEsfolianteFacialCorporal);
 
         // Adiciona o botão ao painel
-        add(cadastrarButton);
+        add(jbCadastrar);
     }
 
 
     private void criarEventos() {
-        cadastrarButton.addActionListener(new ActionListener() {
+        jbCadastrar.addActionListener(new ActionListener() {
             // conta quantas check boxes estão selecionadas
             @Override
             public void actionPerformed(ActionEvent e) {

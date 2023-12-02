@@ -4,6 +4,7 @@ import classes.Paciente;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
+import java.awt.*;
 import java.text.ParseException;
 import java.util.Set;
 
@@ -25,6 +26,9 @@ public class PainelCadastroEmagrecimento extends JPanel {
         setSize(400, 450);
         // Configura o layout do painel para null
         setLayout(null);
+        // definindo a cor de fundo do painel
+        Color fundo = new Color(159, 198, 255);
+        this.setBackground(fundo);
         inicarComponentes();
         criarEventos();
     }
@@ -39,7 +43,9 @@ public class PainelCadastroEmagrecimento extends JPanel {
         jlSexo = new JLabel("Sexo:");
         bgSexo = new ButtonGroup();
         jrbMasculino = new JRadioButton("Masculino");
+        jrbMasculino.setOpaque(false);
         jrbFeminino = new JRadioButton("Feminino");
+        jrbFeminino.setOpaque(false);
         bgSexo.add(jrbMasculino);
         bgSexo.add(jrbFeminino);
         jlTipoAtividade = new JLabel("Tipo de Atividade:");
@@ -49,8 +55,10 @@ public class PainelCadastroEmagrecimento extends JPanel {
         jlAltura = new JLabel("Altura:");
         jtfAltura = new JTextField();
 
-        // Cria o botão
+        // jbCadastrar + Personalização
         jbCadastrar = new JButton("Cadastrar");
+        jbCadastrar.setForeground(Color.WHITE);
+        jbCadastrar.setBackground(new Color(105, 168, 204));
 
         // Adiciona uma máscara de telefone ao campo de telefone
         try {
