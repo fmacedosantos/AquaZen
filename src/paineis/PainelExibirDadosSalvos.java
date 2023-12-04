@@ -1,9 +1,13 @@
 package paineis;
 
 import classes.Paciente;
+import comandos.ComandoPaciente;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 import java.util.Set;
 
 public class PainelExibirDadosSalvos extends JPanel {
@@ -33,12 +37,12 @@ public class PainelExibirDadosSalvos extends JPanel {
 
         // Cria os rótulos e campos de entrada
         jlObjetivoPaciente = new JLabel("Selecione:");
-        jtaMostrar = new JTextArea();
+        jtaMostrar = new JTextArea(1000, 13); // Define o tamanho do JTextArea
         jspMostrar = new JScrollPane(jtaMostrar);
         btPaciente = new ButtonGroup();
-        jrbEmagrecimento = new JRadioButton("Emagrecimento");
+        jrbEmagrecimento = new JRadioButton("Emagrecimento", true);
         jrbEmagrecimento.setOpaque(false);
-        jrbEstetica = new JRadioButton("Estetica");
+        jrbEstetica = new JRadioButton("Estética");
         jrbEstetica.setOpaque(false);
         btPaciente.add(jrbEmagrecimento);
         btPaciente.add(jrbEstetica);
@@ -48,7 +52,6 @@ public class PainelExibirDadosSalvos extends JPanel {
         jbMostrarDados.setBackground(new Color(105, 168, 204));
 
         add(jlObjetivoPaciente);
-        add(jtaMostrar);
         add(jspMostrar);
         add(jrbEmagrecimento);
         add(jrbEstetica);
@@ -65,5 +68,28 @@ public class PainelExibirDadosSalvos extends JPanel {
     }
 
     private void criarEventos() {
+        jbMostrarDados.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jtaMostrar.setText("");
+                ComandoPaciente comandoEmagrecimento = new ComandoPaciente();
+                if (jrbEmagrecimento.isSelected()){
+                    List<String> resultados = comandoEmagrecimento.exibirPaciente("SELECT " +
+                            "* FROM paciente WHERE objetivo = 'Emagrecimento'");
+                    jtaMostrar.append("Código\tObjetivo\t\tNome\tTelefone\t\tSexo\tTipo de Atividade\tPeso\tAltura\tPeso Ideal (%)\n");
+                    for (String resultado : resultados) {
+                        jtaMostrar.append(resultado + "\n");
+                    }
+                } else {
+                    List<String> resultados = comandoEmagrecimento.exibirPaciente("SELECT " +
+                            "* FROM paciente WHERE objetivo = 'Estética'");
+                    jtaMostrar.append("Código\tObjetivo\tNome\tTelefone\t\tSexo\tTipo de Atividade\tSeriço 1\t\tServiço 2\t\tSeriço 3\n");
+                    for (String resultado : resultados) {
+                        jtaMostrar.append(resultado + "\n");
+                    }
+                }
+            }
+        });
+
     }
 }

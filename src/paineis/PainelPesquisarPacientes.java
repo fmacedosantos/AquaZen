@@ -1,9 +1,12 @@
 package paineis;
 
 import classes.Paciente;
+import comandos.ComandoPaciente;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Set;
 
 public class PainelPesquisarPacientes extends JPanel {
@@ -32,7 +35,7 @@ public class PainelPesquisarPacientes extends JPanel {
         jbPesquisar = new JButton("Exibir");
         jbPesquisar.setForeground(Color.WHITE);
         jbPesquisar.setBackground(new Color(105, 168, 204));
-        jtaMostrar = new JTextArea();
+        jtaMostrar = new JTextArea(1000, 13);
         jspMostrar = new JScrollPane(jtaMostrar);
         jbAlterar = new JButton("Alterar");
         jbAlterar.setForeground(Color.white);
@@ -43,7 +46,6 @@ public class PainelPesquisarPacientes extends JPanel {
 
         add(jtfNomePesquisa);
         add(jbPesquisar);
-        add(jtaMostrar);
         add(jspMostrar);
         add(jbAlterar);
         add(jbExcluir);
@@ -61,5 +63,88 @@ public class PainelPesquisarPacientes extends JPanel {
     }
 
     private void criarEventos() {
+        jbPesquisar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!jtfNomePesquisa.getText().isEmpty() && jtfNomePesquisa.getText().matches("[0-9]+")) {
+                    int codigo = Integer.parseInt(jtfNomePesquisa.getText());
+                    ComandoPaciente comandoPaciente = new ComandoPaciente();
+
+                    if (comandoPaciente.pesquisarPaciente(codigo, jtaMostrar)) {
+                        comandoPaciente.pesquisarPaciente(codigo, jtaMostrar);
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "Insira um código válido!", "Aviso:",
+                                JOptionPane.WARNING_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "Insira o código do paciente que deseja alterar!",
+                            "Aviso:", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+
+        jbAlterar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!jtfNomePesquisa.getText().isEmpty() && jtfNomePesquisa.getText().matches("[0-9]+")) {
+                    int codigo = Integer.parseInt(jtfNomePesquisa.getText());
+                    ComandoPaciente comandoPaciente = new ComandoPaciente();
+                    // verificar se existe paciente com o código
+                    if (comandoPaciente.pesquisarPaciente(codigo, jtaMostrar)){
+                        comandoPaciente.alterarAtividadePaciente(codigo);
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "Insira um código válido!", "Aviso:",
+                                JOptionPane.WARNING_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "Insira o código do paciente que deseja alterar!",
+                            "Aviso:", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+
+        jbExcluir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!jtfNomePesquisa.getText().isEmpty() && jtfNomePesquisa.getText().matches("[0-9]+")){
+                    int codigo = Integer.parseInt(jtfNomePesquisa.getText());
+                    ComandoPaciente comandoPaciente = new ComandoPaciente();
+
+                    // verificar se existe paciente com o código
+                    if (comandoPaciente.pesquisarPaciente(codigo, jtaMostrar)){
+                        Object[] options = {"Sim", "Não"};
+                        int opcao = JOptionPane.showOptionDialog(null,
+                                "Você irá excluir o paciente " + codigo + ".",
+                                "Deseja continuar com a operação?",
+                                JOptionPane.YES_NO_OPTION,
+                                JOptionPane.WARNING_MESSAGE,
+                                null,
+                                options, // os títulos dos botões
+                                options[0]); // botão padrão
+
+                        if (opcao == 0) {
+                            comandoPaciente.deletarPaciente(codigo);
+                        } else {
+                            JOptionPane.showMessageDialog(null,
+                                    "O paciente não foi excluido.",
+                                    "Operação cancelada!",
+                                    JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "Insira um código válido!", "Aviso:",
+                                JOptionPane.WARNING_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null,
+                            "Insira o código do paciente\nque deseja excluir.",
+                            "Aviso:", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
     }
 }

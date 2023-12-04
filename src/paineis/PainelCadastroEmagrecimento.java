@@ -2,6 +2,7 @@ package paineis;
 
 import classes.Emagrecimento;
 import classes.Paciente;
+import comandos.ComandoPaciente;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
@@ -17,9 +18,10 @@ public class PainelCadastroEmagrecimento extends JPanel {
     private Emagrecimento emagrecimentos;
     String[] opcoesAtividades = {"Caminhada", "Natação", "Treino"};
     private JLabel jlNome, jlTelefone, jlSexo, jlTipoAtividade, jlPeso, jlAltura;
-    private JTextField jtfNome, jtfPeso, jtfAltura;
+    private JTextField jtfNome, jtfTelefone, jtfPeso, jtfAltura;
+    private MaskFormatter mkfTelefone;
     private JComboBox<String> jcbAtividades;
-    private JFormattedTextField jftfTelefone;
+    //private JFormattedTextField jftfTelefone;
     private ButtonGroup bgSexo;
     private JRadioButton jrbMasculino, jrbFeminino;
     private JButton jbCadastrar;
@@ -39,23 +41,36 @@ public class PainelCadastroEmagrecimento extends JPanel {
 
     private void inicarComponentes() {
 
+        // Adiciona uma máscara de telefone ao campo de telefone
+        try {
+            mkfTelefone = new MaskFormatter("(##)#####-####");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         // Cria os rótulos e campos de entrada
         jlNome = new JLabel("Nome:");
         jtfNome = new JTextField();
+
         jlTelefone = new JLabel("Telefone:");
-        jftfTelefone = new JFormattedTextField();
+        jtfTelefone = new JTextField();
+        jtfTelefone = new JFormattedTextField(mkfTelefone);
+
         jlSexo = new JLabel("Sexo:");
         bgSexo = new ButtonGroup();
-        jrbMasculino = new JRadioButton("Masculino");
+        jrbMasculino = new JRadioButton("Masculino", true);
         jrbMasculino.setOpaque(false);
         jrbFeminino = new JRadioButton("Feminino");
         jrbFeminino.setOpaque(false);
         bgSexo.add(jrbMasculino);
         bgSexo.add(jrbFeminino);
+
         jlTipoAtividade = new JLabel("Tipo de Atividade:");
         jcbAtividades = new JComboBox<>(opcoesAtividades);
+
         jlPeso = new JLabel("Peso:");
         jtfPeso = new JTextField();
+
         jlAltura = new JLabel("Altura:");
         jtfAltura = new JTextField();
 
@@ -64,13 +79,24 @@ public class PainelCadastroEmagrecimento extends JPanel {
         jbCadastrar.setForeground(Color.WHITE);
         jbCadastrar.setBackground(new Color(105, 168, 204));
 
-        // Adiciona uma máscara de telefone ao campo de telefone
-        try {
-            MaskFormatter formatter = new MaskFormatter("(##) #####-####");
-            formatter.install(jftfTelefone);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+
+        // Adiciona os rótulos e campos de entrada ao painel
+        add(jlNome);
+        add(jtfNome);
+        add(jlTelefone);
+        add(jtfTelefone);
+        add(jlSexo);
+        add(jrbMasculino);
+        add(jrbFeminino);
+        add(jlTipoAtividade);
+        add(jcbAtividades);
+        add(jlPeso);
+        add(jtfPeso);
+        add(jlAltura);
+        add(jtfAltura);
+
+        // Adiciona o botão ao painel
+        add(jbCadastrar);
 
         // Define a posição e o tamanho dos componentes
         int y = 20;
@@ -79,7 +105,7 @@ public class PainelCadastroEmagrecimento extends JPanel {
         jtfNome.setBounds(xJtf, y, 100, 20);
         y += 40;
         jlTelefone.setBounds(50, y, 100, 20);
-        jftfTelefone.setBounds(xJtf, y, 100, 20);
+        jtfTelefone.setBounds(xJtf, y, 100, 20);
         y += 40;
         jlSexo.setBounds(50, y, 100, 20);
         jrbMasculino.setBounds(130, y, 100, 20);
@@ -96,23 +122,6 @@ public class PainelCadastroEmagrecimento extends JPanel {
         y += 40;
         jbCadastrar.setBounds(140, y, 100, 20);
 
-        // Adiciona os rótulos e campos de entrada ao painel
-        add(jlNome);
-        add(jtfNome);
-        add(jlTelefone);
-        add(jftfTelefone);
-        add(jlSexo);
-        add(jrbMasculino);
-        add(jrbFeminino);
-        add(jlTipoAtividade);
-        add(jcbAtividades);
-        add(jlPeso);
-        add(jtfPeso);
-        add(jlAltura);
-        add(jtfAltura);
-
-        // Adiciona o botão ao painel
-        add(jbCadastrar);
     }
 
 
@@ -124,7 +133,7 @@ public class PainelCadastroEmagrecimento extends JPanel {
                 Double peso, altura;
 
                 nome = jtfNome.getText();
-                telefone = jftfTelefone.getText();
+                telefone = jtfTelefone.getText();
                 if (jrbMasculino.isSelected()){
                     sexo = "Masculino";
                 } else {
@@ -146,6 +155,7 @@ public class PainelCadastroEmagrecimento extends JPanel {
 
                 // formatando o peso ideal
                 double porcentagemPesoIdeal = emagrecimentos.getPesoIdeal();
+                porcentagemPesoIdeal = emagrecimentos.getPorcentagemPesoIdeal();
                 String mensagemConclusao = String.format("A porcentagem do seu peso atual\n em relação ao seu peso ideal é: \n%.2f%%", porcentagemPesoIdeal);
                 JOptionPane.showMessageDialog(null, mensagemConclusao, "Diagnóstico", JOptionPane.INFORMATION_MESSAGE);
                 String mensagemRecomendacao = "";
@@ -160,6 +170,8 @@ public class PainelCadastroEmagrecimento extends JPanel {
                     mensagemRecomendacao = emagrecimentos.exercitarAcademia();
                 }
 
+                ComandoPaciente comandoPaciente = new ComandoPaciente();
+                comandoPaciente.inserirEmagrecimentoBD(nome, telefone, sexo, tipoAtividade, peso, altura, porcentagemPesoIdeal);
 
                 JOptionPane.showMessageDialog(null, mensagemRecomendacao, "Recomendações", JOptionPane.WARNING_MESSAGE);
                 // fazer uma recomendação
