@@ -169,14 +169,14 @@ public class PainelCadastroEstetica extends JPanel {
                         telefone = jtfTelefone.getText(),
                         telfoneSemMascara = telefone.replaceAll("\\D", ""),
                         sexo = jrbMasculino.isSelected() ? "Masculino" : "Feminino",
-                        tipoAtividade,
+                        tipoAtividade = jcbAtividades.getSelectedIndex() == 0 ?
+                                "Caminhada" : jcbAtividades.getSelectedIndex() == 1 ?
+                                "Natação" : "Treino",
                         servico1 = "Serviço ñ selecionado",
                         servico2 = "Serviço ñ selecionado",
                         servico3 = "Serviço ñ selecionado";
 
-                tipoAtividade = jcbAtividades.getSelectedIndex() == 0 ?
-                        "Caminhada" : jcbAtividades.getSelectedIndex() == 1 ?
-                        "Natação" : "Treino";
+
 
 
                 // percorre as checkboxes e adiciona as selecionadas à uma lista
@@ -220,13 +220,15 @@ public class PainelCadastroEstetica extends JPanel {
                     if (selectedCount > 3) {
                         JOptionPane.showMessageDialog(null, "Selecione " + "no máximo 3 serviços.", "Aviso:", JOptionPane.WARNING_MESSAGE);
                     }
+                    jtfNome.setText("");
+                    jtfTelefone.setText("");
+                    checkBoxesSelecionadas.clear();
+                    servico1 = "Serviço não selecionado";
+                    servico2 = "Serviço não selecionado";
+                    servico3 = "Serviço não selecionado";
                 } else {
                     JOptionPane.showMessageDialog(null, "Preencha " + "todos os dados.", "Aviso:", JOptionPane.WARNING_MESSAGE);
                 }
-                checkBoxesSelecionadas.clear();
-                servico1 = "Serviço não selecionado";
-                servico2 = "Serviço não selecionado";
-                servico3 = "Serviço não selecionado";
             }
         });
     }

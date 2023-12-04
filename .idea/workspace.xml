@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b78e3368-3455-4a86-badb-c089929d5c36" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/comandos/ComandoPaciente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/conexoes/ConectaMySQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AquaZen.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AquaZen.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/CalculoPeso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/CalculoPeso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Emagrecimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Emagrecimento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/conexoes/ConectaMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/conexoes/ConectaMySQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/paineis/PainelCadastroEmagrecimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paineis/PainelCadastroEmagrecimento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/paineis/PainelCadastroEstetica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paineis/PainelCadastroEstetica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/paineis/PainelExibirDadosSalvos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paineis/PainelExibirDadosSalvos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/paineis/PainelPesquisarPacientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paineis/PainelPesquisarPacientes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +33,7 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2YxnwHAWlNeAnwjXuzlIr1ZnBeF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
