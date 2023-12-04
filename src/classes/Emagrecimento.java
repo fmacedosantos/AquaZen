@@ -7,6 +7,7 @@ public class Emagrecimento extends Paciente implements Atividades {
     private Double peso;
     private Double altura;
     private Double pesoIdeal;
+    private Double porcentagemPesoIdeal;
     private String mensagemAtividade;
 
     public Emagrecimento(String nome, String telefone, String sexo, String tipoAtividade, Double peso, Double altura) {
@@ -14,13 +15,15 @@ public class Emagrecimento extends Paciente implements Atividades {
         this.peso = peso;
         this.altura = altura;
         CalculoPeso calculoPeso = new CalculoPeso(this.sexo, this.altura, this.peso);
-        pesoIdeal = calculoPeso.porcentagemPesoIdeal(calculoPeso.pesoIdeal());
+        pesoIdeal = calculoPeso.pesoIdeal();
+        porcentagemPesoIdeal = calculoPeso.porcentagemPesoIdeal();
     }
 
     public double getPesoIdeal() {
         return this.pesoIdeal;
     }
 
+    public Double getPorcentagemPesoIdeal() {return porcentagemPesoIdeal;}
 
     @Override
     public String mostrarDados() {

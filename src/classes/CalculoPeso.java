@@ -22,7 +22,7 @@ public class  CalculoPeso {
         return this.pesoIdeal;
     }
 
-    public Double porcentagemPesoIdeal(Double aDouble){
+    public Double porcentagemPesoIdeal(){
         return (this.peso / this.pesoIdeal) * 100;
     }
 }
