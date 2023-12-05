@@ -1,6 +1,6 @@
 package classes;
 
-public class Paciente {
+public abstract class Paciente {
 
     protected String nome;
     protected String telefone;
