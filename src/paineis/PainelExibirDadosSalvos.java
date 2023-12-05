@@ -76,14 +76,12 @@ public class PainelExibirDadosSalvos extends JPanel {
                 if (jrbEmagrecimento.isSelected()){
                     List<String> resultados = comandoEmagrecimento.exibirPaciente("SELECT " +
                             "* FROM paciente WHERE objetivo = 'Emagrecimento'");
-                    jtaMostrar.append("Código\tObjetivo\t\tNome\tTelefone\t\tSexo\tTipo de Atividade\tPeso\tAltura\tPeso Ideal (%)\n");
                     for (String resultado : resultados) {
                         jtaMostrar.append(resultado + "\n");
                     }
                 } else {
                     List<String> resultados = comandoEmagrecimento.exibirPaciente("SELECT " +
                             "* FROM paciente WHERE objetivo = 'Estética'");
-                    jtaMostrar.append("Código\tObjetivo\tNome\tTelefone\t\tSexo\tTipo de Atividade\tSeriço 1\t\tServiço 2\t\tSeriço 3\n");
                     for (String resultado : resultados) {
                         jtaMostrar.append(resultado + "\n");
                     }

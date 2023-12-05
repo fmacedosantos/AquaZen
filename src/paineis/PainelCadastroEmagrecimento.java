@@ -144,7 +144,9 @@ public class PainelCadastroEmagrecimento extends JPanel {
                     Double peso = Double.parseDouble(jtfPeso.getText()),
                             altura = Double.parseDouble(jtfAltura.getText());
                     emagrecimentos = new Emagrecimento(nome, telefone, sexo, tipoAtividade, peso, altura);
+
                     double porcentagemPesoIdeal = emagrecimentos.getPorcentagemPesoIdeal();
+
                     pacientes.add(emagrecimentos);
                     ComandoPaciente comandoPaciente = new ComandoPaciente();
                     comandoPaciente.inserirEmagrecimentoBD(nome, telefone, sexo, tipoAtividade, peso, altura, porcentagemPesoIdeal);

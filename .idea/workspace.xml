@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37d7a32e-4c53-48af-b875-31a357e38090" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AquaZen.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AquaZen.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Emagrecimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Emagrecimento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Estetica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Estetica.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/comandos/ComandoPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comandos/ComandoPaciente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/conexoes/ConectaMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/conexoes/ConectaMySQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/paineis/PainelCadastroEmagrecimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paineis/PainelCadastroEmagrecimento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/paineis/PainelCadastroEstetica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paineis/PainelCadastroEstetica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/paineis/PainelPesquisarPacientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paineis/PainelPesquisarPacientes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paineis/PainelExibirDadosSalvos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paineis/PainelExibirDadosSalvos.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

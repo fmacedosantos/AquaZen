@@ -8,9 +8,9 @@ import java.util.List;
 
 public class Estetica extends Paciente implements Atividades {
 
-    String servico1;
-    String servico2;
-    String servico3;
+    private String servico1;
+    private String servico2;
+    private String servico3;
 
     public Estetica(String nome, String telefone, String sexo, String tipoAtividade, String servico1) {
         super(nome, telefone, sexo, tipoAtividade);

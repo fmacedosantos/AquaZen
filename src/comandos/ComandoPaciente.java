@@ -93,20 +93,20 @@ public class ComandoPaciente {
             // caso o comando tenha "Emagrecimento", exibe os pacientes de Emagrecimento
             if (comando.contains("Emagrecimento")) {
                 while (resultado.next()) {
-                    String linha = resultado.getInt(1) + "\t" + resultado.getString(2) +
-                            "\t" + resultado.getString(3) + "\t" + resultado.getString(4) +
-                            "\t" + resultado.getString(5) + "\t" + resultado.getString(6) +
-                            "\t\t" + resultado.getDouble(10) + "\t" + resultado.getDouble(11) +
-                            "\t" + resultado.getDouble(12);
+                    String linha = "Código: " + resultado.getInt(1) + "\nObjetivo: " + resultado.getString(2) +
+                            "\nNome: " + resultado.getString(3) + "\nTelefone: " + resultado.getString(4) +
+                            "\nSexo: " + resultado.getString(5) + "\nTipo de Atividade: " + resultado.getString(6) +
+                            "\nPeso: " + resultado.getDouble(10) + "\nAltura: " + resultado.getDouble(11) +
+                            "\nPeso Ideal (%):" + resultado.getDouble(12) + "\n";
                     resultados.add(linha);
                 }
             } else { // caso não, os de Estética
                 while (resultado.next()) {
-                    String linha = resultado.getInt(1) + "\t" + resultado.getString(2) +
-                            "\t" + resultado.getString(3) + "\t" + resultado.getString(4) +
-                            "\t" + resultado.getString(5) + "\t" + resultado.getString(6) +
-                            "\t\t" + resultado.getString(7) + "\t" + resultado.getString(8) +
-                            "\t" + resultado.getString(9);
+                    String linha = "Código: " + resultado.getInt(1) + "\nObjetivo: " + resultado.getString(2) +
+                            "\nNome: " + resultado.getString(3) + "\nTelefone: " + resultado.getString(4) +
+                            "\nSexo: " + resultado.getString(5) + "\nTipo de Atividade: " + resultado.getString(6) +
+                            "\nServiço 1: " + resultado.getString(7) + "\nServiço 2: " + resultado.getString(8) +
+                            "\nServiço 3: " + resultado.getString(9) + "\n";
                     resultados.add(linha);
                 }
             }
