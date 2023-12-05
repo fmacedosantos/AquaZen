@@ -79,7 +79,7 @@ public class PainelPesquisarPacientes extends JPanel {
                     }
                 } else {
                     JOptionPane.showMessageDialog(null,
-                            "Insira o código do paciente que deseja alterar!",
+                            "Insira o código do paciente\nque deseja exibir!",
                             "Aviso:", JOptionPane.WARNING_MESSAGE);
                 }
             }
@@ -101,7 +101,7 @@ public class PainelPesquisarPacientes extends JPanel {
                     }
                 } else {
                     JOptionPane.showMessageDialog(null,
-                            "Insira o código do paciente que deseja alterar!",
+                            "Insira o código do paciente\nque deseja alterar!",
                             "Aviso:", JOptionPane.WARNING_MESSAGE);
                 }
             }

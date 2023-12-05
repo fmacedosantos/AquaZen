@@ -133,41 +133,28 @@ public class PainelCadastroEmagrecimento extends JPanel {
 
                 String nome = jtfNome.getText(),
                         telefone = jtfTelefone.getText(),
+                        telfoneSemMascara = telefone.replaceAll("\\D", ""),
                         sexo = jrbMasculino.isSelected() ? "Masculino" : "Feminino",
                         tipoAtividade = jcbAtividades.getSelectedIndex() == 0 ?
                                 "Caminhada" : jcbAtividades.getSelectedIndex() == 1 ?
                                 "Natação" : "Treino";
-                        Double peso = Double.valueOf(jtfPeso.getText()),
-                        altura = Double.valueOf(jtfAltura.getText());
 
 
-                if (!nome.isEmpty() && !telefone.isEmpty() && !jtfPeso.getText().isEmpty() && !jtfAltura.getText().isEmpty()) {
+                if (!nome.isEmpty() && !telfoneSemMascara.isEmpty() && !jtfPeso.getText().replaceAll("\\D", "").isEmpty() && !jtfAltura.getText().replaceAll("\\D", "").isEmpty()) {
+                    Double peso = Double.parseDouble(jtfPeso.getText()),
+                            altura = Double.parseDouble(jtfAltura.getText());
                     emagrecimentos = new Emagrecimento(nome, telefone, sexo, tipoAtividade, peso, altura);
                     double porcentagemPesoIdeal = emagrecimentos.getPorcentagemPesoIdeal();
                     pacientes.add(emagrecimentos);
                     ComandoPaciente comandoPaciente = new ComandoPaciente();
                     comandoPaciente.inserirEmagrecimentoBD(nome, telefone, sexo, tipoAtividade, peso, altura, porcentagemPesoIdeal);
-
-                    // mensagens
-                    // formatando o peso ideal
-                    String mensagemConclusao = String.format("A porcentagem do seu peso atual\n em relação ao seu peso ideal é: \n%.2f%%", porcentagemPesoIdeal);
-                    JOptionPane.showMessageDialog(null, mensagemConclusao, "Diagnóstico", JOptionPane.INFORMATION_MESSAGE);
-                    String mensagemRecomendacao = "";
-                    if (emagrecimentos.getPorcentagemPesoIdeal() <= 100) {
-                        mensagemRecomendacao = "Analisando o seu quadro,\n" +
-                                "não há a necessidade de emagrecimento.";
-                    } else if (tipoAtividade.equals("Caminhada")) {
-                        mensagemRecomendacao = emagrecimentos.caminharBosque();
-                    } else if (tipoAtividade.equals("Natação")) {
-                        mensagemRecomendacao = emagrecimentos.nadarPiscina();
-                    } else {
-                        mensagemRecomendacao = emagrecimentos.exercitarAcademia();
-                    }
-                    JOptionPane.showMessageDialog(null, mensagemRecomendacao, "Recomendações", JOptionPane.WARNING_MESSAGE);
+                    emagrecimentos.exibirMensagens();
                     jtfNome.setText("");
                     jtfTelefone.setText("");
+                    jtfPeso.setText("");
+                    jtfAltura.setText("");
                 } else {
-                    JOptionPane.showMessageDialog(null, "Preencha " + "todos os dados.", "Aviso:", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Preencha todos os dados corretamente.", "Aviso:", JOptionPane.WARNING_MESSAGE);
                 }
             }
 

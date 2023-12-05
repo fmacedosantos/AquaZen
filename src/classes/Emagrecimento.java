@@ -2,6 +2,8 @@ package classes;
 
 import interfaces.Atividades;
 
+import javax.swing.*;
+
 public class Emagrecimento extends Paciente implements Atividades {
 
     private Double peso;
@@ -36,7 +38,7 @@ public class Emagrecimento extends Paciente implements Atividades {
 
     @Override
     public String caminharBosque() {
-        if (this.pesoIdeal < 140){
+        if (this.porcentagemPesoIdeal < 125){
             mensagemAtividade = "Caminhe um total de 130 minutos semanais.";
         } else {
             mensagemAtividade = "Caminhe um total de 250 minutos semanais." +
@@ -47,7 +49,7 @@ public class Emagrecimento extends Paciente implements Atividades {
 
     @Override
     public String nadarPiscina() {
-        if (this.pesoIdeal < 140){
+        if (this.porcentagemPesoIdeal < 125){
             mensagemAtividade = "Nade um total de 60 minutos semanais.";
         } else {
             mensagemAtividade = "Nade um total de 140 minutos semanais." +
@@ -58,12 +60,31 @@ public class Emagrecimento extends Paciente implements Atividades {
 
     @Override
     public String exercitarAcademia() {
-        if (this.pesoIdeal < 140){
+        if (this.porcentagemPesoIdeal < 125){
             mensagemAtividade = "Treine um total de 5 horas semanais.";
         } else {
             mensagemAtividade = "Treine um total de 10 horas semanais." +
                     "\nConsulte um nutricionista para uma dieta\nadequada.";
         }
         return mensagemAtividade;
+    }
+
+    public void exibirMensagens(){
+        // mensagens
+        // formatando o peso ideal
+        String mensagemConclusao = String.format("A porcentagem do seu peso atual\n em relação ao seu peso ideal é: \n%.2f%%", porcentagemPesoIdeal);
+        JOptionPane.showMessageDialog(null, mensagemConclusao, "Diagnóstico", JOptionPane.INFORMATION_MESSAGE);
+        String mensagemRecomendacao = "";
+        if (this.porcentagemPesoIdeal <= 100) {
+            mensagemRecomendacao = "Analisando o seu quadro,\n" +
+                    "não há a necessidade de emagrecimento.";
+        } else if (tipoAtividade.equals("Caminhada")) {
+            mensagemRecomendacao = caminharBosque();
+        } else if (tipoAtividade.equals("Natação")) {
+            mensagemRecomendacao = nadarPiscina();
+        } else {
+            mensagemRecomendacao = exercitarAcademia();
+        }
+        JOptionPane.showMessageDialog(null, mensagemRecomendacao, "Recomendações", JOptionPane.WARNING_MESSAGE);
     }
 }

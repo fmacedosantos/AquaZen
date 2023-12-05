@@ -227,7 +227,7 @@ public class PainelCadastroEstetica extends JPanel {
                     servico2 = "Serviço não selecionado";
                     servico3 = "Serviço não selecionado";
                 } else {
-                    JOptionPane.showMessageDialog(null, "Preencha " + "todos os dados.", "Aviso:", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Preencha todos os dados corretamente.", "Aviso:", JOptionPane.WARNING_MESSAGE);
                 }
             }
         });

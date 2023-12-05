@@ -79,18 +79,18 @@ public class ComandoPaciente {
 
 
     public List<String> exibirPaciente(String comando) {
-        // lista para guardar
+        // lista para guardar os resultados
         List<String> resultados = new ArrayList<>();
 
         //conexao de banco de dados
         conecta = new ConectaMySQL();
         conexao = conecta.iniciarConexao();
 
-        // "SELECT * FROM paciente WHERE codigo =" + codigo
 
         try {
             PreparedStatement ps = conexao.prepareStatement(comando);
             ResultSet resultado = ps.executeQuery();
+            // caso o comando tenha "Emagrecimento", exibe os pacientes de Emagrecimento
             if (comando.contains("Emagrecimento")) {
                 while (resultado.next()) {
                     String linha = resultado.getInt(1) + "\t" + resultado.getString(2) +
@@ -100,7 +100,7 @@ public class ComandoPaciente {
                             "\t" + resultado.getDouble(12);
                     resultados.add(linha);
                 }
-            } else {
+            } else { // caso não, os de Estética
                 while (resultado.next()) {
                     String linha = resultado.getInt(1) + "\t" + resultado.getString(2) +
                             "\t" + resultado.getString(3) + "\t" + resultado.getString(4) +

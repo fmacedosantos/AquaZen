@@ -4,26 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b78e3368-3455-4a86-badb-c089929d5c36" name="Changes" comment="">
+    <list default="true" id="37d7a32e-4c53-48af-b875-31a357e38090" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AquaZen.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AquaZen.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Emagrecimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Emagrecimento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/comandos/ComandoPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comandos/ComandoPaciente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/conexoes/ConectaMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/conexoes/ConectaMySQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/paineis/PainelCadastroEmagrecimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paineis/PainelCadastroEmagrecimento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/paineis/PainelCadastroEstetica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paineis/PainelCadastroEstetica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paineis/PainelPesquisarPacientes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paineis/PainelPesquisarPacientes.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/conexoes/ConectaMySQL.java" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -32,8 +34,7 @@
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 0
 }</component>
-  <component name="ProjectId" id="2YxnwHAWlNeAnwjXuzlIr1ZnBeF" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2Z6HYxWe86rh16ecNKPPY8Ta3Um" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -47,10 +48,10 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/Documents/projetos/FastShop&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/Documents/projetos/AquaZen&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
   <component name="RunManager">
@@ -65,34 +66,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b78e3368-3455-4a86-badb-c089929d5c36" name="Changes" comment="" />
-      <created>1701476337896</created>
+      <changelist id="37d7a32e-4c53-48af-b875-31a357e38090" name="Changes" comment="" />
+      <created>1701735661834</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1701476337896</updated>
+      <updated>1701735661834</updated>
     </task>
-    <task id="LOCAL-00001" summary="Parte visual do projeto finalizada. Nomenclaturas estabelecidas. PainelPesquisarPacientes desenvolvido.">
-      <option name="closed" value="true" />
-      <created>1701481459638</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1701481459638</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Começando a criação de eventos em PainelCadastroEmagrecimento. Modificações para a atender à lógica de negócio em CalculoPeso e Emagrecimento.">
-      <option name="closed" value="true" />
-      <created>1701486575257</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1701486575257</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Parte visual do projeto finalizada. Nomenclaturas estabelecidas. PainelPesquisarPacientes desenvolvido." />
-    <MESSAGE value="Começando a criação de eventos em PainelCadastroEmagrecimento. Modificações para a atender à lógica de negócio em CalculoPeso e Emagrecimento." />
-    <option name="LAST_COMMIT_MESSAGE" value="Começando a criação de eventos em PainelCadastroEmagrecimento. Modificações para a atender à lógica de negócio em CalculoPeso e Emagrecimento." />
   </component>
 </project>
