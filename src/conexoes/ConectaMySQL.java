@@ -9,9 +9,9 @@ import java.sql.SQLException;
 
         private final String DRIVER = "com.mysql.cj.jdbc.Driver";
         private final String DBNAME = "aquazen";
-        private final String URL = "jdbc:mysql://ESN509VMYSQL:3306/" + DBNAME; //localhost
-        private final String LOGIN = "aluno"; // root
-        private final String SENHA = "Senai1234"; // root
+        private final String URL = "jdbc:mysql://localhost:3306/" + DBNAME;
+        private final String LOGIN = "root"; // root
+        private final String SENHA = "root"; // root
 
         /* Objeto da classe Connection que será usado para configurar o IP do banco, usuario e senha //Import java.sql.Connection;*/
 

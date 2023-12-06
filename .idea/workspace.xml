@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="AquaZen:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="37d7a32e-4c53-48af-b875-31a357e38090" name="Changes" comment="">
+    <list default="true" id="ef8346d2-0733-43a0-bc1c-55ac92528954" name="Changes" comment="Tornando a classe Paciente abstrata.">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/AquaZen_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/classes/Estetica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Estetica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/CalculoPeso.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/CalculoPeso.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/classes/Emagrecimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Emagrecimento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/comandos/ComandoPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comandos/ComandoPaciente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/conexoes/ConectaMySQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/conexoes/ConectaMySQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/paineis/PainelCadastroEmagrecimento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paineis/PainelCadastroEmagrecimento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/paineis/PainelExibirDadosSalvos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paineis/PainelExibirDadosSalvos.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,38 +27,36 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/conexoes/ConectaMySQL.java" root0="SKIP_HIGHLIGHTING" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 0
+  &quot;associatedIndex&quot;: 6
 }</component>
-  <component name="ProjectId" id="2Z6HYxWe86rh16ecNKPPY8Ta3Um" />
+  <component name="ProjectId" id="2Z91CcYXQuf8eFtj78nQLhvKdAm" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/Documents/projetos/AquaZen&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "20",
+    "last_opened_file_path": "C:/Users/admin/Documents/projetos/AquaZen/out/artifacts/AquaZen_jar/AquaZen.jar",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="testes.TestaAquaZen" />
       <module name="AquaZen" />
       <method v="2">
@@ -62,12 +67,25 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="37d7a32e-4c53-48af-b875-31a357e38090" name="Changes" comment="" />
-      <created>1701735661834</created>
+      <changelist id="ef8346d2-0733-43a0-bc1c-55ac92528954" name="Changes" comment="" />
+      <created>1701819355116</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1701735661834</updated>
+      <updated>1701819355116</updated>
     </task>
+    <task id="LOCAL-00001" summary="Tornando a classe Paciente abstrata.">
+      <option name="closed" value="true" />
+      <created>1701819717057</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701819717057</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Tornando a classe Paciente abstrata." />
+    <option name="LAST_COMMIT_MESSAGE" value="Tornando a classe Paciente abstrata." />
   </component>
 </project>

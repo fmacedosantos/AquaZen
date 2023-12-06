@@ -97,7 +97,7 @@ public class ComandoPaciente {
                             "\nNome: " + resultado.getString(3) + "\nTelefone: " + resultado.getString(4) +
                             "\nSexo: " + resultado.getString(5) + "\nTipo de Atividade: " + resultado.getString(6) +
                             "\nPeso: " + resultado.getDouble(10) + "\nAltura: " + resultado.getDouble(11) +
-                            "\nPeso Ideal (%):" + resultado.getDouble(12) + "\n";
+                            "\nPeso Ideal (%): " + resultado.getDouble(12) + "\n";
                     resultados.add(linha);
                 }
             } else { // caso não, os de Estética
@@ -129,24 +129,22 @@ public class ComandoPaciente {
         String linha = null;
         try {
             PreparedStatement ps = conexao.prepareStatement(comando);
-            ResultSet result = ps.executeQuery();
+            ResultSet resultado = ps.executeQuery();
 
-            if (result.next()) {
-                String valor = result.getString("objetivo");
+            if (resultado.next()) {
+                String valor = resultado.getString("objetivo");
                 if (valor.equals("Emagrecimento")) {
-                    cabecalho = "Código\tObjetivo\t\tNome\tTelefone\t\tSexo\tTipo de Atividade\tPeso\tAltura\tPeso Ideal (%)\n";
-                    linha = result.getInt(1) + "\t" + result.getString(2) +
-                            "\t" + result.getString(3) + "\t" + result.getString(4) +
-                            "\t" + result.getString(5) + "\t" + result.getString(6) +
-                            "\t\t" + result.getDouble(10) + "\t" + result.getDouble(11) +
-                            "\t" + result.getDouble(12);
+                    linha = "Código: " + resultado.getInt(1) + "\nObjetivo: " + resultado.getString(2) +
+                            "\nNome: " + resultado.getString(3) + "\nTelefone: " + resultado.getString(4) +
+                            "\nSexo: " + resultado.getString(5) + "\nTipo de Atividade: " + resultado.getString(6) +
+                            "\nPeso: " + resultado.getDouble(10) + "\nAltura: " + resultado.getDouble(11) +
+                            "\nPeso Ideal (%): " + resultado.getDouble(12) + "\n";
                 } else {
-                    cabecalho = "Código\tObjetivo\tNome\tTelefone\t\tSexo\tTipo de Atividade\tSeriço 1\t\tServiço 2\t\tSeriço 3\n";
-                    linha = result.getInt(1) + "\t" + result.getString(2) +
-                            "\t" + result.getString(3) + "\t" + result.getString(4) +
-                            "\t" + result.getString(5) + "\t" + result.getString(6) +
-                            "\t\t" + result.getString(7) + "\t" + result.getString(8) +
-                            "\t" + result.getString(9);
+                    linha = "Código: " + resultado.getInt(1) + "\nObjetivo: " + resultado.getString(2) +
+                            "\nNome: " + resultado.getString(3) + "\nTelefone: " + resultado.getString(4) +
+                            "\nSexo: " + resultado.getString(5) + "\nTipo de Atividade: " + resultado.getString(6) +
+                            "\nServiço 1: " + resultado.getString(7) + "\nServiço 2: " + resultado.getString(8) +
+                            "\nServiço 3: " + resultado.getString(9) + "\n";
                 }
             }
 

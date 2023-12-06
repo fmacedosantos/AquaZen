@@ -6,13 +6,13 @@ import javax.swing.*;
 
 public class Emagrecimento extends Paciente implements Atividades {
 
-    private Double peso;
-    private Double altura;
-    private Double pesoIdeal;
-    private Double porcentagemPesoIdeal;
+    private double peso;
+    private double altura;
+    private double pesoIdeal;
+    private double porcentagemPesoIdeal;
     private String mensagemAtividade;
 
-    public Emagrecimento(String nome, String telefone, String sexo, String tipoAtividade, Double peso, Double altura) {
+    public Emagrecimento(String nome, String telefone, String sexo, String tipoAtividade, double peso, double altura) {
         super(nome, telefone, sexo, tipoAtividade);
         this.peso = peso;
         this.altura = altura;
@@ -25,7 +25,7 @@ public class Emagrecimento extends Paciente implements Atividades {
         return this.pesoIdeal;
     }
 
-    public Double getPorcentagemPesoIdeal() {return porcentagemPesoIdeal;}
+    public double getPorcentagemPesoIdeal() {return porcentagemPesoIdeal;}
 
     @Override
     public String mostrarDados() {
@@ -77,7 +77,7 @@ public class Emagrecimento extends Paciente implements Atividades {
         String mensagemRecomendacao = "";
         if (this.porcentagemPesoIdeal <= 100) {
             mensagemRecomendacao = "Analisando o seu quadro,\n" +
-                    "não há a necessidade de emagrecimento.";
+                    "não há a necessidade de\nemagrecimento.";
         } else if (tipoAtividade.equals("Caminhada")) {
             mensagemRecomendacao = caminharBosque();
         } else if (tipoAtividade.equals("Natação")) {

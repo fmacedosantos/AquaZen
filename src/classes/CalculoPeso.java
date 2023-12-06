@@ -3,17 +3,17 @@ package classes;
 public class  CalculoPeso {
 
     protected String sexo;
-    protected Double altura;
-    protected Double peso;
-    protected Double pesoIdeal;
+    protected double altura;
+    protected double peso;
+    protected double pesoIdeal;
 
-    public CalculoPeso(String sexo, Double altura, Double peso) {
+    public CalculoPeso(String sexo, double altura, double peso) {
         this.sexo = sexo;
         this.altura = altura;
         this.peso = peso;
     }
 
-    public Double pesoIdeal(){
+    public double pesoIdeal(){
         if (this.sexo.equals("Masculino")){
             this.pesoIdeal = (72.7 * this.altura - 58);
         } else {
@@ -22,7 +22,7 @@ public class  CalculoPeso {
         return this.pesoIdeal;
     }
 
-    public Double porcentagemPesoIdeal(){
+    public double porcentagemPesoIdeal(){
         return (this.peso / this.pesoIdeal) * 100;
     }
 }

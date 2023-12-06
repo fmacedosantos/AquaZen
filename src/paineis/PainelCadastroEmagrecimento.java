@@ -141,7 +141,7 @@ public class PainelCadastroEmagrecimento extends JPanel {
 
 
                 if (!nome.isEmpty() && !telfoneSemMascara.isEmpty() && !jtfPeso.getText().replaceAll("\\D", "").isEmpty() && !jtfAltura.getText().replaceAll("\\D", "").isEmpty()) {
-                    Double peso = Double.parseDouble(jtfPeso.getText()),
+                    double peso = Double.parseDouble(jtfPeso.getText()),
                             altura = Double.parseDouble(jtfAltura.getText());
                     emagrecimentos = new Emagrecimento(nome, telefone, sexo, tipoAtividade, peso, altura);
 
